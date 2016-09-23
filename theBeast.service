@@ -1,0 +1,15 @@
+[Unit]
+Description=Simplified service to organize torrents via filebot
+After=syslog.target
+
+[Service]
+Type=simple
+User=node
+Group=node
+WorkingDirectory=/home/price/server_conf/
+ExecStart=/home/node/server_conf/beastDaemon.py
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

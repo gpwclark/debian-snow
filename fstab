@@ -29,4 +29,13 @@ UUID="d8f63c1a-0f60-4ceb-bde6-55deff70d3a3"	/mnt/oldsnow		ext4	nofail,rw,suid,de
 
 #/mnt/extern/music                       /home/subsonic/music            none    bind
 
+# SSHFS MOUNTS
+
+#price@192.168.1.4:/home/price/rtorrent/watch /home/price/rtorrent_watch    fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/price/.ssh/id_rsa,allow_other,default_permissions,uid=1000,gid=1000,reconnect 0 0
+
+#price@192.168.1.4:/home/price/emby_mount /home/emby/movies/torrents    fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/price/.ssh/id_rsa,allow_other,default_permissions,uid=1000,gid=1000,reconnect 0 0
+
+price@192.168.1.4:/home/price/rtorrent/watch /home/price/rtorrent_watch       fuse.sshfs      x-systemd.automount,_netdev,user,idmap=user,transform_symlinks,identityfile=/home/price/.ssh/id_rsa,allow_other,default_permissions,uid=1000,gid=1000,umask=0   0 0
+
+price@192.168.1.4:/home/price/emby_mount /home/emby/movies/torrents       fuse.sshfs      x-systemd.automount,_netdev,user,idmap=user,transform_symlinks,identityfile=/home/price/.ssh/id_rsa,allow_other,default_permissions,uid=1000,gid=1000,umask=0   0 0
 # }}}
